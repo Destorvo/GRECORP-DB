@@ -1,0 +1,21 @@
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: grecorp_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin123
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - mysql-network
+
+volumes:
+  mysql-data:
+
+networks:
+  mysql-network:
