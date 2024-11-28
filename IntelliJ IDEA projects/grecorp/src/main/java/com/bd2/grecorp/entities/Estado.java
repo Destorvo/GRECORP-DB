@@ -1,11 +1,18 @@
 package com.bd2.grecorp.entities;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 
 @Entity
+@Table(name = "estado")
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Estado {
 
     @Id

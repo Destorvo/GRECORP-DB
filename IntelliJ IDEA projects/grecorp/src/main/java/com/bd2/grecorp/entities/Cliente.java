@@ -10,7 +10,7 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "pieza")
+@Table(name = "cliente")
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -24,10 +24,10 @@ public class Cliente {
     @Column(name = "nombre", length = 51)
     private String nombre;
 
-    @Column(name = "apellido_paterno", length = 15)
+    @Column(name = "apellido_p", length = 15)
     private String apellidoP;
 
-    @Column(name = "apellido_materno", length = 15)
+    @Column(name = "apellido_m", length = 15)
     private String apellidoM;
 
     @Email
