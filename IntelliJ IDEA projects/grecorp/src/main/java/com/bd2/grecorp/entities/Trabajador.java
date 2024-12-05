@@ -20,7 +20,7 @@ public class Trabajador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_trabajador")
-    private Integer codTrabajdor;
+    private Integer codTrabajador;
 
     @Column(name = "dni", length = 8)
     private String dni;
@@ -28,10 +28,10 @@ public class Trabajador {
     @Column(name = "nombre", length = 51)
     private String nombre;
 
-    @Column(name = "apellido_paterno", length = 15)
+    @Column(name = "apellido_p", length = 15)
     private String apellidoP;
 
-    @Column(name = "apellido_materno", length = 15)
+    @Column(name = "apellido_m", length = 15)
     private String apellidoM;
 
     @Email

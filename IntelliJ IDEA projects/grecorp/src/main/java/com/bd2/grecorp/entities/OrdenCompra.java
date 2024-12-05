@@ -17,7 +17,7 @@ public class OrdenCompra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "num_orden")
-    private Long numOrden;
+    private Integer numOrden;
 
     @Column
     private Integer cantidad;

@@ -1,6 +1,7 @@
 package com.bd2.grecorp.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.EqualsAndHashCode;
@@ -43,12 +44,15 @@ public class Cliente {
     @Column(name = "direccion", columnDefinition = "TEXT")
     private String direccion;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<RealizarServicio> servicios;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Cotizacion> cotizaciones;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Venta> ventas;
 

@@ -19,7 +19,7 @@ public class Cargo {
     @Column(name = "cod_cargo")
     private Short codCargo;
 
-    @Column(name = "nombre", length = 21)
+    @Column(name = "nombre", length = 31)
     private String nombre;
 
     @Column(name = "descripcion", columnDefinition = "TEXT")

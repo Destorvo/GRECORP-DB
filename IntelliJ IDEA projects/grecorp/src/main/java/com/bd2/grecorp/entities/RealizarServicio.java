@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "realizar_servicio")
@@ -26,6 +25,8 @@ public class RealizarServicio {
     @Column(name = "fecha_realizado")
     private LocalDate fechaRealizado;
 
+    @Column(name = "observaciones", columnDefinition = "TEXT")
+    private String observaciones;
 
     @ManyToOne
     @JoinColumn(name = "cod_cliente", nullable = false)
@@ -38,6 +39,5 @@ public class RealizarServicio {
     @ManyToOne
     @JoinColumn(name = "cod_trabajador", nullable = false)
     private Trabajador trabajador;
-
 
 }

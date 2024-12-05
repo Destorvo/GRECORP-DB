@@ -19,7 +19,7 @@ public class Inventario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "num_inventario")
-    private Long numIventario;
+    private Integer numIventario;
 
     @Column
     private Integer cantidad;
