@@ -25,7 +25,7 @@ public class Inventario {
     private Integer cantidad;
 
     @Column(name = "fecha_actualizado")
-    private LocalDateTime fechaActualizado;
+    private LocalDate fechaActualizado;
 
     @ManyToOne
     @JoinColumn(name = "num_pieza")

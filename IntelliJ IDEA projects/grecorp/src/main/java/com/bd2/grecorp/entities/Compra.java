@@ -27,10 +27,10 @@ public class Compra {
     private Estado estado;
 
     @Column(name = "fecha_realizado")
-    private LocalDateTime fechaRealizado;
+    private LocalDate fechaRealizado;
 
     @ManyToOne
-    @JoinColumn(name = "metodo_pago")
+    @JoinColumn(name = "cod_mp")
     private MetodoPago metodoPago;
 
     @OneToOne

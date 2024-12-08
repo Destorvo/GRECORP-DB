@@ -1,23 +1,29 @@
 package com.bd2.grecorp.repositories;
 
-import com.bd2.grecorp.dto.ProveedorOrdCompPendienteDTO;
-import com.bd2.grecorp.dto.ServicioClienteDTO;
 import com.bd2.grecorp.entities.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
-    @Query("SELECT new com.bd2.grecorp.dto.ServicioClienteDTO( " +
-            "CONCAT(c.nombre, ' ', c.apellidoP, ' ', c.apellidoM), c.correo, s.descripcion, rs.costo, rs.fechaRealizado," +
-            "CONCAT(t.nombre, ' ', t.apellidoP, ' ', t.apellidoM), rs.observaciones) " +
-            "FROM Cliente c " +
-            "JOIN RealizarServicio rs ON c.codCliente = rs.cliente.codCliente " +
-            "JOIN Trabajador t ON t.codTrabajador = rs.trabajador.codTrabajador " +
-            "JOIN Servicio s ON rs.servicio.codServicio = s.codServicio " +
-            "WHERE c.rucDni = ?1")
-    List<ServicioClienteDTO> getAllClienteServicio(String rucDni);
+    @Procedure(procedureName = "servicios_cliente")
+    List<Object[]> verServiciosCliente(@Param("c_rucdni") String rucDni);
+
+    @Procedure(procedureName = "cotizaciones_cliente")
+    List<Object[]> verCotizacionesCliente(@Param("c_rucdni") String rucDni);
+
+    @Procedure(procedureName = "registrar_cliente")
+    void registrarCliente(@Param("nombre") String nombre,
+                          @Param("apellido_p") String apellidoP,
+                          @Param("apellido_m") String apellidoM,
+                          @Param("correo") String correo,
+                          @Param("telefono") String telefono,
+                          @Param("ruc_dni") String rucDni,
+                          @Param("direccion") String direccion);
 
 }

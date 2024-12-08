@@ -4,16 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class ProveedorOrdCompRealizadaDTO {
+public class EstadoOrdCompraDTO {
     private String nombre;
     private String ruc;
     private Integer numOrden;
-    private LocalDateTime fechaEmitida;
-    private LocalDateTime fechaAprobada;
+    private Date fechaEmitida;
+    private Date fechaAprobada;
     private String estado;
 }

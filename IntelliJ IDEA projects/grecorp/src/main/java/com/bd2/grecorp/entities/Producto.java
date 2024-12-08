@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -20,14 +21,14 @@ public class Producto {
     @Column(name = "cod_producto")
     private Integer codProducto;
 
-    @Column(name = "desrcipcion", columnDefinition = "TEXT")
+    @Column(name = "descripcion", columnDefinition = "TEXT")
     private String descripcion;
 
     @Column
     private Float precio;
 
     @Column(name = "fecha_fabricado")
-    private LocalDateTime fechaFabricado;
+    private LocalDate fechaFabricado;
 
     @OneToMany(mappedBy = "producto")
     private List<Cotizacion> cotizaciones;

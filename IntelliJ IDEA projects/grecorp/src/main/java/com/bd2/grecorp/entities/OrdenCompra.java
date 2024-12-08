@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -26,10 +27,10 @@ public class OrdenCompra {
     private String observaciones;
 
     @Column(name = "fecha_emitida")
-    private LocalDateTime fechaEmitida;
+    private LocalDate fechaEmitida;
 
     @Column(name = "fecha_aprobada")
-    private LocalDateTime fechaAprobada;
+    private LocalDate fechaAprobada;
 
     @ManyToOne
     @JoinColumn(name = "cod_proveedor")

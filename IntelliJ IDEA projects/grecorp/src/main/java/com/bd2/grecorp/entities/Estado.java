@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import java.util.List;
 
-
 @Entity
 @Table(name = "estado")
 @Getter
@@ -20,7 +19,7 @@ public class Estado {
     @Column(name = "cod_estado")
     private Short codEstado;
 
-    @Column(name = "nombre", length = 21)
+    @Column(name = "nombre", length = 50)
     private String nombre;
 
     @Column(name = "descripcion", columnDefinition = "TEXT")

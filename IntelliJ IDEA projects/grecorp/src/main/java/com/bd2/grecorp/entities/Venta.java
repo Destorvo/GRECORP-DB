@@ -28,7 +28,7 @@ public class Venta {
     private String observaciones;
 
     @Column(name = "fecha_venta")
-    private LocalDateTime fechaVenta;
+    private LocalDate fechaVenta;
 
     @ManyToOne
     @JoinColumn(name = "cod_cliente")
