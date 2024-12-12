@@ -11,9 +11,6 @@ import java.util.List;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
-    @Procedure(procedureName = "servicios_cliente")
-    List<Object[]> verServiciosCliente(@Param("c_rucdni") String rucDni);
-
     @Procedure(procedureName = "cotizaciones_cliente")
     List<Object[]> verCotizacionesCliente(@Param("c_rucdni") String rucDni);
 

@@ -1,5 +1,6 @@
 package com.bd2.grecorp.service.impl;
 
+import com.bd2.grecorp.dto.ActualizarInventarioDTO;
 import com.bd2.grecorp.dto.CotizacionPendienteFabricacionDTO;
 import com.bd2.grecorp.dto.InventarioDTO;
 import com.bd2.grecorp.repositories.InventarioRepository;
@@ -7,6 +8,7 @@ import com.bd2.grecorp.service.InventarioService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -32,5 +34,12 @@ public class InventarioServiceImpl implements InventarioService {
                         (Date) objects[4]
                 ))
                 .toList();
+    }
+
+    @Override
+    public void actualizarInventario(ActualizarInventarioDTO actualizarInventarioDTO) {
+        inventarioRepository.actualizarInventario(
+                actualizarInventarioDTO.getNumPieza(),
+                actualizarInventarioDTO.getCantidad()        );
     }
 }

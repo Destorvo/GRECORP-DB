@@ -1,6 +1,5 @@
 package com.bd2.grecorp.dto;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

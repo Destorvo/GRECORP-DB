@@ -26,13 +26,8 @@ public class OrdCompraController {
     @PostMapping("/registrar")
     public ResponseEntity<?> nuevaOrdCompra(@RequestBody RegistrarOrdCompraDTO registrarOrdCompraDTO) {
         try {
-            ordCompraService.registrarOrdCompra(
-                    registrarOrdCompraDTO.getCodProveedor(),
-                    registrarOrdCompraDTO.getCodTrabajador(),
-                    registrarOrdCompraDTO.getCodPieza(),
-                    registrarOrdCompraDTO.getCantidad()
-            );
-            return ResponseEntity.ok("Orden de compra registrada exitosamente.");
+            ordCompraService.registrarOrdCompra(registrarOrdCompraDTO);
+            return ResponseEntity.ok("Orden de compra registrada correctamente.");
         } catch (DataAccessException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("Error: " + e.getMessage());

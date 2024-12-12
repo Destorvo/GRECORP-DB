@@ -20,7 +20,7 @@ public class VenderProducto  {
     private Integer cantidad;
 
     @ManyToOne
-    @JoinColumn(name = "venderProductos")
+    @JoinColumn(name = "num_venta")
     private Venta venta;
 
     @OneToOne

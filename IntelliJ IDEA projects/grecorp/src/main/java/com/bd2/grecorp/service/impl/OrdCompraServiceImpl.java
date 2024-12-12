@@ -1,6 +1,7 @@
 package com.bd2.grecorp.service.impl;
 
 import com.bd2.grecorp.dto.EstadoOrdCompraDTO;
+import com.bd2.grecorp.dto.RegistrarOrdCompraDTO;
 import com.bd2.grecorp.repositories.OrdCompraRepository;
 import com.bd2.grecorp.service.OrdCompraService;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,12 @@ public class OrdCompraServiceImpl implements OrdCompraService {
     }
 
     @Override
-    public void registrarOrdCompra(Integer codProveedor, Integer codTrabajador, Integer codPieza, Integer cantidad) {
-        ordCompraRepository.registrarOrdenCompra(codProveedor, codTrabajador, codPieza, cantidad);
+    public void registrarOrdCompra(RegistrarOrdCompraDTO registrarOrdCompraDTO) {
+        ordCompraRepository.registrarOrdenCompra(
+                registrarOrdCompraDTO.getCodProveedor(),
+                registrarOrdCompraDTO.getCodTrabajador(),
+                registrarOrdCompraDTO.getCodPieza(),
+                registrarOrdCompraDTO.getCantidad()
+        );
     }
 }

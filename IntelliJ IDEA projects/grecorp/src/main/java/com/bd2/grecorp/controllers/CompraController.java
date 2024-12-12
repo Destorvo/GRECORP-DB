@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/grecorp/bd/compra")
 public class CompraController {
+
     private final CompraService compraService;
 
     public CompraController(CompraService compraService) {
@@ -22,12 +23,8 @@ public class CompraController {
     @PostMapping("/registrar")
     public ResponseEntity<?> nuevaOrdCompra(@RequestBody RegistrarCompraDTO registrarCompraDTO) {
         try {
-            compraService.registrarCompra(
-                    registrarCompraDTO.getNumOrdCompra(),
-                    registrarCompraDTO.getCodMP(),
-                    registrarCompraDTO.getObservaciones()
-            );
-            return ResponseEntity.ok("Compra registrada exitosamente.");
+            compraService.registrarCompra(registrarCompraDTO);
+            return ResponseEntity.ok("Compra registrada correctamente.");
         } catch (DataAccessException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("Error: " + e.getMessage());

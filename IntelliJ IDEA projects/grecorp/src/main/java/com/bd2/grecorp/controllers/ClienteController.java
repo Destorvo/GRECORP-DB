@@ -22,11 +22,6 @@ public class ClienteController {
         return ResponseEntity.ok(clienteService.getClientes());
     }
 
-    @GetMapping("/servicios/{dniRuc}")
-    public ResponseEntity<?> getAllServiciosCliente(@PathVariable String dniRuc) {
-        return ResponseEntity.ok(clienteService.verServiciosCliente(dniRuc));
-    }
-
     @GetMapping("/cotizaciones/{dniRuc}")
     public ResponseEntity<?> getAllCotizacionesCliente(@PathVariable String dniRuc) {
         return ResponseEntity.ok(clienteService.verCotizacionesCliente(dniRuc));
@@ -35,16 +30,8 @@ public class ClienteController {
     @PostMapping("/registrar")
     public ResponseEntity<?> registrarCliente(@RequestBody RegistrarClienteDTO registrarClienteDTO) {
         try {
-            clienteService.registrarCliente(
-                    registrarClienteDTO.getNombre(),
-                    registrarClienteDTO.getApellidoP(),
-                    registrarClienteDTO.getApellidoM(),
-                    registrarClienteDTO.getCorreo(),
-                    registrarClienteDTO.getTelefono(),
-                    registrarClienteDTO.getRucDni(),
-                    registrarClienteDTO.getDireccion()
-            );
-            return ResponseEntity.ok("Cliente registrado exitosamente.");
+            clienteService.registrarCliente(registrarClienteDTO);
+            return ResponseEntity.ok("Cliente registrado correctamente.");
         } catch (DataAccessException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("Error: " + e.getMessage());

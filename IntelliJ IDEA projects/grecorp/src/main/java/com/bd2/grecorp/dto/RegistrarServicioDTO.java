@@ -4,17 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class ServicioClienteDTO {
-    private String cliente;
-    private String correo;
-    private String servicio;
+public class RegistrarServicioDTO {
+    private String dniRuc;
+    private Integer codTrabajador;
+    private Integer codServicio;
     private Float costo;
-    private Date realizado;
-    private String trabajador;
+    private LocalDate fechaRealizado;
     private String observaciones;
 }

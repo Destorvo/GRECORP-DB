@@ -14,4 +14,5 @@ public interface CotizacionRepository extends JpaRepository<Cotizacion, Integer>
     @Procedure(procedureName = "cotizaciones_pendientes_fabricacion")
     List<Object[]> verCotizacionesPendientesFabricacion();
 
+
 }
